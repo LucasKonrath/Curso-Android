@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AplicacaoRenner</string>
+    <string name="telaInicial">Tela\nInicial</string>
+    <string name="lojaVirtual">Loja\nVirtual</string>
+    <string name="cartoesRenner">Cartões\nRenner</string>
+    <string name="olaClaudio">olá Cláudio, digite a senha de\ncompra do seu cartão</string>
+</resources>
