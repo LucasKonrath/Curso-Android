@@ -2,9 +2,14 @@ package com.example.lucasdamaceno.troopersdex;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.lucasdamaceno.troopersdex.model.Trooper;
 import com.example.lucasdamaceno.troopersdex.utils.Constants;
@@ -45,4 +50,21 @@ public class DetailScreenActivity extends AppCompatActivity{
                 .into(imvTrooperImage);
     }
 
+    /*@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.trooper_detail_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()){
+            case R.id.star_item:
+                Toast.makeText(this, "Favoritar Trooper", Toast.LENGTH_LONG).show();
+                return true;
+            default:
+                super.onOptionsItemSelected(item);
+        }
+    }*/
 }
