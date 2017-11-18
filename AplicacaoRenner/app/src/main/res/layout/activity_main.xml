@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context="com.example.lucasdamaceno.aplicacaorenner.MainActivity">
 
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,6 +48,7 @@
                 android:background="@android:color/darker_gray" />
             
             <TextView
+                android:id="@+id/buttonProceed"
                 android:text="prosseguir"
                 android:gravity="center"
                 android:background="@drawable/button_background"
@@ -54,8 +58,7 @@
                 android:layout_height="50dp" />
         </LinearLayout>
     </LinearLayout>
-
-
+    </ScrollView>
     <include layout="@layout/view_footer_menu"></include>
 
 </RelativeLayout>

@@ -4,4 +4,5 @@
     <string name="lojaVirtual">Loja\nVirtual</string>
     <string name="cartoesRenner">Cartões\nRenner</string>
     <string name="olaClaudio">olá Cláudio, digite a senha de\ncompra do seu cartão</string>
+    <string name="naoSouEu"><u>"não sou eu, quero sair"</u></string>
 </resources>
