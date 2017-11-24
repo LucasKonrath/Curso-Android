@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.lucasdamaceno.troopersdex.CadastrarTrooperActivity">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textoCadastrarTrooper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cadastre_um_trooper"
+            android:textAlignment="center"
+            android:textSize="10pt" />
+
+        <EditText
+            android:id="@+id/nomeTrooperCadastrar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Digite o nome do trooper a adicionar"
+            android:inputType="textPersonName" />
+
+        <Spinner
+            android:id="@+id/spinnerAffiliationType"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:prompt="@string/escolhaAfiliacao"
+            android:entries="@array/affiliationTypes">
+
+        </Spinner>
+
+        <EditText
+            android:id="@+id/descricaoTrooperNovo"
+            android:layout_width="fill_parent"
+            android:hint="@string/digite_a_descri_o_do_trooper_novo"
+            android:inputType="textMultiLine"
+            android:lines="5"
+            android:layout_height="wrap_content"
+            />
+
+        <EditText
+            android:id="@+id/urlImagemTrooperNovo"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/digite_a_url_da_imagem_do_trooper"/>
+
+        <Button
+            android:id="@+id/buttonCadastrarTrooper"
+            android:onClick="saveTrooper"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Cadastrar Trooper"/>
+    </LinearLayout>
+
+</ScrollView>

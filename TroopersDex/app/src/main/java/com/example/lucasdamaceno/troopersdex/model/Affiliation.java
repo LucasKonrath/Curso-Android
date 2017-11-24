@@ -19,5 +19,4 @@ public enum Affiliation {
     public int getValue(){
         return value;
     }
-
 }

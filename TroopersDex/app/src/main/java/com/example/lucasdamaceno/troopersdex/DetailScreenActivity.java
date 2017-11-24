@@ -50,9 +50,8 @@ public class DetailScreenActivity extends AppCompatActivity{
                 .into(imvTrooperImage);
     }
 
-    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.trooper_detail_menu, menu);
+        getMenuInflater().inflate(R.menu.trooper_detail, menu);
         return true;
     }
 
@@ -64,7 +63,7 @@ public class DetailScreenActivity extends AppCompatActivity{
                 Toast.makeText(this, "Favoritar Trooper", Toast.LENGTH_LONG).show();
                 return true;
             default:
-                super.onOptionsItemSelected(item);
+                return super.onOptionsItemSelected(item);
         }
-    }*/
+    }
 }

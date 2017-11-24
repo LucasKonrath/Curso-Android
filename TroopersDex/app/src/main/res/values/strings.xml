@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">TroopersDex</string>
     <string name="trooper_affiliation_cdesc">logo da afiliação do trooper</string>
+    <string name="cadastre_um_trooper">Cadastre um Trooper</string>
+    <string name="first_order">First Order</string>
+    <string name="galactic_republic">Galactic Republic</string>
+    <string name="galactic_empire">Galactic Empire</string>
+    <string name="escolhaAfiliacao">Escolha a afiliação do seu trooper</string>
+    <string name="digite_a_descri_o_do_trooper_novo">Digite a descrição do trooper novo</string>
+    <string name="digite_a_url_da_imagem_do_trooper">Digite a URL da imagem do trooper</string>
 </resources>

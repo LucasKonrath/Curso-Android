@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -54,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements TrooperAdapter.On
     @Override
     public boolean onLongClick(final View v) {
         new AlertDialog.Builder(this)
+                .setTitle("Excluir Trooper")
                 .setMessage("Tem certeza de que deseja excluir esse trooper?")
                 .setCancelable(true)
                 .setNegativeButton("NÃO", new DialogInterface.OnClickListener() {
@@ -71,9 +74,35 @@ public class MainActivity extends AppCompatActivity implements TrooperAdapter.On
                         Toast.makeText(MainActivity.this, "Trooper Excluído", Toast.LENGTH_SHORT).show();
                     }
                 })
-                .setTitle("Excluir Trooper")
                 .show();
 
         return true;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        TrooperRepository
+                .saveToSharedPreferences(troopers,
+                        getSharedPreferences(Constants.PREFS_NAME, MODE_PRIVATE));
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.trooper_list_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()){
+            case R.id.plus_green_item:
+                Intent intent = new Intent(this, CadastrarTrooperActivity.class);
+                startActivity(intent);
+                Toast.makeText(this, "Adicionar trooper", Toast.LENGTH_LONG).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
