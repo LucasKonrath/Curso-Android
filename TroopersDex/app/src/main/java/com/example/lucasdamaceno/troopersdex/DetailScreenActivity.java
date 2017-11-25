@@ -1,9 +1,6 @@
 package com.example.lucasdamaceno.troopersdex;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lucasdamaceno.troopersdex.model.Trooper;
+import com.example.lucasdamaceno.troopersdex.repository.TrooperRepository;
 import com.example.lucasdamaceno.troopersdex.utils.Constants;
 import com.squareup.picasso.Picasso;
 
@@ -51,7 +49,12 @@ public class DetailScreenActivity extends AppCompatActivity{
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.trooper_detail, menu);
+        if (TrooperRepository.isTrooperFavorite(trooper.getId(), getSharedPreferences(Constants.PREFS_NAME, MODE_PRIVATE))){
+            getMenuInflater().inflate(R.menu.favorited_trooper_detail, menu);
+        }
+        else{
+            getMenuInflater().inflate(R.menu.unfavorited_trooper_detail, menu);
+        }
         return true;
     }
 
@@ -60,7 +63,16 @@ public class DetailScreenActivity extends AppCompatActivity{
 
         switch(item.getItemId()){
             case R.id.star_item:
-                Toast.makeText(this, "Favoritar Trooper", Toast.LENGTH_LONG).show();
+                if(item.getIcon().getConstantState().equals(getResources().getDrawable(R.drawable.ic_white_star).getConstantState())){
+                    Toast.makeText(this, "Favoritar Trooper", Toast.LENGTH_LONG).show();
+                    item.setIcon(R.drawable.ic_star_full);
+                    TrooperRepository.saveTrooperIdToFavorites(trooper.getId(), getSharedPreferences(Constants.PREFS_NAME, MODE_PRIVATE));
+                }
+                else {
+                    Toast.makeText(this, "Trooper Desfavoritado", Toast.LENGTH_LONG).show();
+                    item.setIcon(R.drawable.ic_white_star);
+                    TrooperRepository.removeTrooperIdFromFavorites(trooper.getId(), getSharedPreferences(Constants.PREFS_NAME, MODE_PRIVATE));
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -11,6 +11,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * Created by lucas.damaceno on 18/11/2017.
@@ -56,6 +57,56 @@ public class TrooperRepository {
         String jsonList = gson.toJson(troopers);
 
         util.save(Constants.TROOPER_LIST, jsonList);
+
+    }
+
+    public static ArrayList<Integer> tryGettingFavoritesFromSharedPreferences(SharedPreferences preferences){
+
+        Gson gson = new Gson();
+        ArrayList<Integer> idsTroopers = new ArrayList<Integer>();
+        SharedPreferencesUtils util = new SharedPreferencesUtils(preferences);
+        if (util.hasValue(Constants.FAVORITE_TROOPERS)) {
+            String json = util.get(Constants.FAVORITE_TROOPERS);
+            idsTroopers = gson.fromJson(json, new TypeToken<ArrayList<Integer>>() {
+            }.getType());
+        }
+        return idsTroopers;
+    }
+
+    public static boolean isTrooperFavorite(int id, SharedPreferences preferences){
+
+        return tryGettingFavoritesFromSharedPreferences(preferences).contains(id);
+    }
+
+    public static void saveTrooperIdToFavorites(int id, SharedPreferences preferences){
+
+        SharedPreferencesUtils utils = new SharedPreferencesUtils(preferences);
+
+        Gson gson = new Gson();
+
+        ArrayList<Integer> listaDeIDs = tryGettingFavoritesFromSharedPreferences(preferences);
+
+        listaDeIDs.add(id);
+
+        String jsonList = gson.toJson(listaDeIDs);
+
+        utils.save(Constants.FAVORITE_TROOPERS, jsonList);
+
+    }
+
+    public static void removeTrooperIdFromFavorites(int id, SharedPreferences preferences){
+
+        SharedPreferencesUtils utils = new SharedPreferencesUtils(preferences);
+
+        Gson gson = new Gson();
+
+        ArrayList<Integer> listaDeIDs = tryGettingFavoritesFromSharedPreferences(preferences);
+
+        listaDeIDs.removeAll(Collections.singleton(id));
+
+        String jsonList = gson.toJson(listaDeIDs);
+
+        utils.save(Constants.FAVORITE_TROOPERS, jsonList);
 
     }
 
