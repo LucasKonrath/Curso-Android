@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity implements TrooperAdapter.On
     @Override
     protected void onStop() {
         super.onStop();
+        mediaPlayer.stop();
         TrooperRepository
                 .saveToSharedPreferences(troopers,
                         getSharedPreferences(Constants.PREFS_NAME, MODE_PRIVATE));
@@ -103,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements TrooperAdapter.On
             case R.id.plus_green_item:
                 Intent intent = new Intent(this, CadastrarTrooperActivity.class);
                 startActivity(intent);
-                Toast.makeText(this, "Adicionar trooper", Toast.LENGTH_LONG).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

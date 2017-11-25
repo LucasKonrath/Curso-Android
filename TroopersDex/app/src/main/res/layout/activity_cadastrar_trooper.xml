@@ -3,57 +3,96 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/star_wars_commander_05"
     tools:context="com.example.lucasdamaceno.troopersdex.CadastrarTrooperActivity">
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical">
+        android:layout_width="320dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:focusableInTouchMode="true">
 
         <TextView
             android:id="@+id/textoCadastrarTrooper"
+            android:textColor="@android:color/holo_green_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:text="@string/cadastre_um_trooper"
             android:textAlignment="center"
-            android:textSize="10pt" />
+            android:layout_marginTop="10dp"
+            android:textSize="30sp" />
 
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_green_light"
+            android:text="Digite o nome do trooper a adicionar"/>
         <EditText
+            android:background="@android:color/white"
             android:id="@+id/nomeTrooperCadastrar"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="Digite o nome do trooper a adicionar"
+            android:hint="Roberval"
             android:inputType="textPersonName" />
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_green_light"
+            android:text="@string/escolhaAfiliacao"/>
 
         <Spinner
             android:id="@+id/spinnerAffiliationType"
-            android:layout_width="fill_parent"
+            android:layout_width="320dp"
             android:layout_height="50dp"
-            android:prompt="@string/escolhaAfiliacao"
-            android:entries="@array/affiliationTypes">
-
+            android:layout_marginBottom="10dp"
+            android:background="@android:color/white"
+            android:entries="@array/affiliationTypes"
+            android:prompt="@string/escolhaAfiliacao">
         </Spinner>
 
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/digite_a_descri_o_do_trooper_novo"
+            android:textColor="@android:color/holo_green_light"/>
         <EditText
             android:id="@+id/descricaoTrooperNovo"
             android:layout_width="fill_parent"
-            android:hint="@string/digite_a_descri_o_do_trooper_novo"
+            android:background="@android:color/white"
+            android:hint="Roberval é um cara bem legal"
             android:inputType="textMultiLine"
-            android:lines="5"
+            android:lines="4"
             android:layout_height="wrap_content"
             />
 
-        <EditText
-            android:id="@+id/urlImagemTrooperNovo"
+        <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/digite_a_url_da_imagem_do_trooper"/>
+            android:text="@string/digite_a_url_da_imagem_do_trooper"
+            android:layout_marginTop="20dp"
+            android:textColor="@android:color/holo_green_light"/>
+        <EditText
+            android:background="@android:color/white"
+            android:id="@+id/urlImagemTrooperNovo"
+            android:layout_width="320dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:hint="https://vignette.wikia.nocookie.net/starwars/images/d/d2/Jar_Jar_aotc.jpg"/>
 
         <Button
             android:id="@+id/buttonCadastrarTrooper"
             android:onClick="saveTrooper"
-            android:layout_width="fill_parent"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/black"
+            android:textColor="@android:color/holo_green_light"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:text="Cadastrar Trooper"/>
     </LinearLayout>

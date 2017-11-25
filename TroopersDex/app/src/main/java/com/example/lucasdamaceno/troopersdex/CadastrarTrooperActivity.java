@@ -68,7 +68,8 @@ public class CadastrarTrooperActivity extends AppCompatActivity {
 
         ArrayList<Trooper> troopers = TrooperRepository.tryGettingFromSharedPreferences(getSharedPreferences(Constants.PREFS_NAME, MODE_PRIVATE));
 
-        Trooper trooper = new Trooper(troopers.size()+1,trooperName,trooperDescription,trooperImageUrl, affiliation);
+        Trooper trooper = new Trooper(troopers.size()+1,trooperName,trooperImageUrl,trooperDescription
+                ,affiliation);
 
         troopers.add(trooper);
 
