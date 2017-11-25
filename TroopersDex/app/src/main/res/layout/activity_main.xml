@@ -4,12 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.lucasdamaceno.troopersdex.MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/star_wars_commander_05">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/troopers_rv"
-        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
         android:layout_height="match_parent">
+
     </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

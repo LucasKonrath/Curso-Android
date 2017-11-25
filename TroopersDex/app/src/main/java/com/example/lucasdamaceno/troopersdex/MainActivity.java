@@ -3,6 +3,7 @@ package com.example.lucasdamaceno.troopersdex;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements TrooperAdapter.On
     private RecyclerView rvTroopers;
     private ArrayList<Trooper> troopers;
     private TrooperAdapter adapter;
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements TrooperAdapter.On
         setContentView(R.layout.activity_main);
         rvTroopers = findViewById(R.id.troopers_rv);
         populateRecyclerView();
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.imperialmarch);
+        mediaPlayer.start();
     }
 
     private void populateRecyclerView() {
@@ -95,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements TrooperAdapter.On
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch(item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.plus_green_item:
                 Intent intent = new Intent(this, CadastrarTrooperActivity.class);
                 startActivity(intent);
@@ -105,4 +109,5 @@ public class MainActivity extends AppCompatActivity implements TrooperAdapter.On
                 return super.onOptionsItemSelected(item);
         }
     }
+
 }

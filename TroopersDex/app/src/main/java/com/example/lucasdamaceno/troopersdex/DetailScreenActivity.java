@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.lucasdamaceno.troopersdex.model.Trooper;
 import com.example.lucasdamaceno.troopersdex.repository.TrooperRepository;
 import com.example.lucasdamaceno.troopersdex.utils.Constants;
+import com.example.lucasdamaceno.troopersdex.utils.ResourceUtils;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -37,11 +38,13 @@ public class DetailScreenActivity extends AppCompatActivity{
     private void initializeComponents(){
         tvTrooperDescription = findViewById(R.id.trooper_description_tv);
         imvTrooperImage = findViewById(R.id.trooper_image);
+        imvTrooperAffiliation = findViewById(R.id.trooper_detail_affiliation_imv);
     }
 
     private void bindTrooper(){
         trooper = (Trooper) getIntent().getSerializableExtra(Constants.EXTRA_TROOPER);
         tvTrooperDescription.setText(trooper.getDescription());
+        imvTrooperAffiliation.setImageResource(ResourceUtils.getResourceBasedOnAffiliation(trooper.getAffiliation()));
 
         Picasso.with(this)
                 .load(trooper.getImageUrl())
